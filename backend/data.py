@@ -29,7 +29,17 @@ def jprint(obj):
     text = json.dumps(obj, sort_keys=True, indent=4)
     print(text)
 
+def write(data, file_name = 'output'):
+    with open(f'{file_name}.json', 'w', encoding ='utf-8') as file:
+        json.dump(data, file, ensure_ascii=False, indent = 4)
+
+
+def display(results):
+    for result in results:
+        print(result)
+
 if __name__ == '__main__':
     query =" duster inside out"
     results = search_track(query)
+    write(results)
     
